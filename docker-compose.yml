@@ -1,16 +1,30 @@
 version: '3'
 
 volumes:
-  node-modules:
+  node-modules-auto:
+  node-modules-manual:
 
 
 services:
-  app:
-    build: ./
+  auto-app:
+    build:
+      context: "./"
+      dockerfile: "DockerfileAuto"
     volumes:
-      - ./:/usr/local/src/
-      - node-modules:/usr/local/src/sample-app/node_modules
+      - ./services/sample-app/:/usr/local/src/
+      - node-modules-auto:/usr/local/src/node_modules
     working_dir: /usr/local/src
     tty: true
     ports:
-      - 3000:3000
+      - 3001:3000
+  manual-app:
+    build:
+      context: "./"
+      dockerfile: "DockerfileManual"
+    volumes:
+      - ./services/manual-app/:/usr/local/src/
+      - node-modules-manual:/usr/local/src/node_modules
+    working_dir: /usr/local/src
+    tty: true
+    ports:
+      - 3002:3000
