@@ -9,7 +9,7 @@ services:
     build: ./
     volumes:
       - ./:/usr/local/src/
-      - node-modules:/usr/local/src/node_modules
+      - node-modules:/usr/local/src/sample-app/node_modules
     working_dir: /usr/local/src
     tty: true
     ports:
