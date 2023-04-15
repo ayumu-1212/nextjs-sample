@@ -16,7 +16,7 @@ services:
     working_dir: /usr/local/src
     tty: true
     ports:
-      - 3001:3000
+      - 3011:3000
   manual-app:
     build:
       context: "./"
@@ -27,4 +27,4 @@ services:
     working_dir: /usr/local/src
     tty: true
     ports:
-      - 3002:3000
+      - 3012:3000
